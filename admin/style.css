@@ -14,7 +14,7 @@ body {
     color: #3e2723;
 }
 
-/* HEADER SUPERIOR */
+/* header superior */
 .header-admin {
     background: var(--color-admin);
     color: white;
@@ -31,7 +31,7 @@ body {
     letter-spacing: 1px;
 }
 
-/* BOTÓN CERRAR SESIÓN (ROJO) */
+/* botón cerrar sesión */
 #logoutBtn {
     background-color: var(--color-peligro);
     color: white;
@@ -47,7 +47,7 @@ body {
     background-color: #a93226;
 }
 
-/* CONTENEDOR DE DOS COLUMNAS */
+/* contenedor dos columnas */
 .admin-container {
     display: grid;
     grid-template-columns: 1fr 1fr; /* Divide la pantalla en dos partes iguales */
@@ -57,7 +57,7 @@ body {
     margin: 0 auto;
 }
 
-/* TARJETAS BLANCAS PARA LOS FORMULARIOS Y LISTAS */
+/* formulario y lista */
 .card-admin {
     background: white;
     padding: 25px;
@@ -73,7 +73,7 @@ body {
     padding-bottom: 10px;
 }
 
-/* ESTILOS DEL FORMULARIO */
+/* estilo del formulario */
 .input-group {
     margin-bottom: 15px;
     text-align: left;
@@ -116,7 +116,7 @@ input:focus {
     background: #1b5e20;
 }
 
-/* LISTA DE GESTIÓN */
+/* lista de gestión */
 .item-gestion {
     display: flex;
     justify-content: space-between;
@@ -150,7 +150,7 @@ input:focus {
     margin-bottom: 20px;
 }
 
-/* RESPONSIVO: Si la pantalla es pequeña, se pone una columna sobre otra */
+/* Si la pantalla es pequeña, se pone una columna sobre otra (responsivo) */
 @media (max-width: 800px) {
     .admin-container {
         grid-template-columns: 1fr;

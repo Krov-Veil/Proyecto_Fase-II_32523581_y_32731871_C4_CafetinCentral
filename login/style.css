@@ -1,7 +1,7 @@
 /* variables y fuentes */
 @font-face {
     font-family: 'bright';
-    /* CORRECCIÓN: Salimos de login y entramos a assets/fonts */
+    /* sale de login y entra a assets/fonts */
     src: url('../assets/fonts/bright.otf') format('opentype'); 
     font-weight: normal;
     font-style: normal;
@@ -20,9 +20,8 @@
 
 /* configuración general */
 body {
-    /* CORRECCIÓN: Salimos de login y entramos a assets/img */
-    /* Nota: He mantenido el nombre con espacios, pero si lo renombras a fondo-inicio-sesion.jpeg mejor */
-    background-image: url('../assets/img/fondo inicio sesion.jpeg'); 
+    /* sale de login y entra a assets/img */
+    background-image: url('../assets/img/fondo-inicio-sesion.jpeg'); 
     
     /* Asegura que la imagen cubra toda la pantalla sin repetirse */
     background-size: cover; 
@@ -52,7 +51,7 @@ h1 {
     font-size: var(--titulo-size); /* Usa la variable de arriba */
     margin: 0;
     color: var(--color-principal);
-    text-shadow: 4px 4px 0px var(--color-sombra); /* Sombra retro */
+    text-shadow: 4px 4px 0px var(--color-sombra); /* Sombra retro para resaltar el título */
     line-height: 1.1;
 }
 

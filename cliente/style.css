@@ -1,91 +1,251 @@
-/* Reutiliza tus variables del login */
+/* 1. IMPORTACIÓN DE FUENTE PERSONALIZADA */
 @font-face {
     font-family: 'bright';
-    src: url('../assets/fonts/bright.otf') format('opentype');
+    src: url('../assets/fonts/bright.otf') format('opentype'); 
+    font-weight: normal;
+    font-style: normal;
 }
 
-body {
-    background-color: #f3ece0;
-    font-family: Arial, sans-serif;
-    margin: 0;
+/* 2. VARIABLES DE DISEÑO */
+:root {
+    --color-principal: #5d4037;
+    --color-oscuro: #3e2723;
+    --color-crema: #fdfaf5;
+    --color-fondo: #e7dccb;
+    --color-sombra: #d7ccc8;
+    --verde-acento: #27ae60;
 }
 
-.header-container {
-    background: #5d4037;
-    color: white;
-    padding: 20px;
+/* 3. CONFIGURACIÓN GENERAL */
+body { 
+    background-color: var(--color-fondo); 
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+    margin: 0; 
+    color: #333;
+}
+
+/* 4. HEADER Y LOGOTIPO (Basado en Captura 160146) */
+.menu-header { 
+    background: var(--color-oscuro); 
+    padding: 20px 0 45px; 
     text-align: center;
+    border-bottom: 5px solid var(--color-principal);
 }
 
-h1 { font-family: 'bright'; font-size: 3rem; margin: 0; }
-
-nav button {
-    background: #8d6e63;
-    border: none;
-    color: white;
-    padding: 10px 15px;
-    margin: 5px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.grid-productos {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-    padding: 20px;
-}
-
-.card-producto {
-    background: white;
-    padding: 15px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.card-producto button {
-    background: #6f4e37;
-    color: white;
-    border: none;
-    padding: 8px;
-    width: 100%;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.item-cart {
-    display: flex;
-    justify-content: space-between;
-    background: white;
+.logo-tipo {
+    font-family: 'bright', serif;
+    font-size: 4.5rem; 
     margin: 10px 0;
-    padding: 10px;
-    border-radius: 5px;
+    color: var(--color-crema); 
+    text-shadow: 4px 4px 0px rgba(0,0,0,0.3); 
 }
 
-/* Estilos para la tabla de historial */
-.tabla-historial {
+.top-bar { 
+    display: flex; 
+    justify-content: space-between; 
+    padding: 0 30px 10px; 
+    align-items: center;
+}
+
+.btn-salir { 
+    background: transparent; 
+    border: 1px solid white; 
+    color: white; 
+    padding: 6px 15px; 
+    border-radius: 20px; 
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cart-container { 
+    background: white; 
+    color: var(--color-oscuro); 
+    padding: 10px 18px; 
+    border-radius: 25px; 
+    cursor: pointer; 
+    position: relative; 
+}
+
+#cart-count { 
+    background: #e74c3c; 
+    color: white; 
+    border-radius: 50%; 
+    padding: 2px 7px; 
+    font-size: 0.75rem; 
+    position: absolute; 
+    top: -5px; 
+    right: 0; 
+}
+
+/* 5. NAVEGACIÓN CON BOTONES REDONDEADOS (Basado en Captura 160146) */
+.tabs-navegacion { 
+    display: flex; 
+    justify-content: center; 
+    margin-top: -22px; 
+    gap: 10px;
+}
+
+.tab-btn { 
+    background: #d7ccc8; 
+    border: none; 
+    padding: 14px 35px; 
+    cursor: pointer; 
+    font-weight: bold;
+    color: var(--color-oscuro);
+    border-radius: 12px 12px 0 0; /* Esquinas superiores redondeadas */
+    transition: 0.3s ease;
+}
+
+.tab-btn:hover {
+    background: #c5b6b0;
+}
+
+.tab-btn.active { 
+    background: var(--color-fondo); 
+    color: var(--color-principal);
+    border-bottom: 3px solid var(--color-principal);
+}
+
+/* 6. GRID DE PRODUCTOS E IMÁGENES */
+.grid-productos { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
+    gap: 25px; 
+    padding: 50px 20px; 
+    max-width: 1100px; 
+    margin: 0 auto; 
+}
+
+.card { 
+    background: white; 
+    padding: 20px; 
+    border-radius: 15px; 
+    text-align: center; 
+    border: 1px solid #eee;
+    transition: 0.3s;
+}
+
+.card:hover { 
+    transform: translateY(-8px); 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
+}
+
+/* Estilos para las nuevas imágenes */
+.contenedor-img {
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    background: rgb(252, 247, 233);
+    height: 150px;
     border-radius: 10px;
-    overflow: hidden; /* Para que las esquinas redondeadas funcionen */
+    overflow: hidden;
+    margin-bottom: 15px;
+    background-color: #f9f9f9;
 }
 
-.tabla-historial th, .tabla-historial td {
-    padding: 15px;
-    text-align: left;
-    border-bottom: 1px solid #000000;
+.img-producto {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen no se deforme */
+    transition: transform 0.3s ease;
 }
 
-.tabla-historial th {
-    background-color: var(--color-acento);
-    color: rgb(3, 0, 0);
-    text-transform: uppercase;
-    font-size: 0.8rem;
+.card:hover .img-producto {
+    transform: scale(1.1); /* Zoom sutil al pasar el mouse */
 }
 
-.tabla-historial tr:hover {
-    background-color: #fdfaf5;
+.bs-precio { 
+    display: block; 
+    font-weight: bold; 
+    font-size: 1.2rem; 
+    margin-top: 10px; 
 }
+
+.usd-ref { 
+    color: var(--verde-acento); 
+    font-size: 0.9rem; 
+    font-weight: 600; 
+}
+
+.btn-añadir { 
+    background: var(--color-principal); 
+    color: white; 
+    border: none; 
+    padding: 12px; 
+    margin-top: 15px; 
+    border-radius: 10px; 
+    cursor: pointer; 
+    width: 100%; 
+    font-weight: bold;
+}
+
+/* 7. CARRITO LATERAL (Basado en Captura 154241) */
+#carrito-lateral {
+    position: fixed; 
+    right: 0; 
+    top: 0; 
+    width: 350px; 
+    height: 100%;
+    background: white; 
+    box-shadow: -10px 0 30px rgba(0,0,0,0.15);
+    z-index: 1000; 
+    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex; 
+    flex-direction: column;
+}
+
+.carrito-cerrado { transform: translateX(100%); }
+
+.carrito-header {
+    background: var(--color-principal); 
+    color: white; 
+    padding: 25px;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+}
+
+/* Botón X circular (Sin recuadro blanco) */
+.close-cart {
+    background: rgba(255, 255, 255, 0.2); 
+    border: none; 
+    color: white; 
+    font-size: 18px; 
+    width: 32px; 
+    height: 32px; 
+    border-radius: 50%; /* Lo hace circular */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.close-cart:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: rotate(90deg);
+}
+
+.carrito-body { 
+    flex: 1; 
+    padding: 20px; 
+    overflow-y: auto; 
+    background: #f9f9f9; 
+}
+
+.carrito-footer { 
+    padding: 25px; 
+    border-top: 1px solid #eee; 
+}
+
+.btn-finalizar {
+    background: var(--verde-acento); 
+    color: white; 
+    border: none; 
+    width: 100%; 
+    padding: 18px; 
+    font-weight: bold; 
+    border-radius: 12px; 
+    cursor: pointer;
+}
+
+/* 8. UTILIDADES */
+.seccion-oculta { display: none; }
+.seccion-activa { display: block; }

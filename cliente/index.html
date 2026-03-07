@@ -2,56 +2,59 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Cafetín Central  | Cliente</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú | Cafetín Central</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="header-container">
-        <h1>Cafetin Central</h1>
-        <div class="user-info">
-            <span>Bienvenido, ClienteUCV</span> | 
-            <span class="puntos">Puntos de Lealtad: <strong>150</strong></span>
+    <header class="menu-header">
+        <div class="top-bar">
+            <button onclick="window.location.href='../login/index.html'" class="btn-salir">Cerrar Sesión</button>
+            <div class="cart-container" onclick="toggleCarrito()">
+                <span class="icon">🛒</span>
+                <span id="cart-count">0</span>
+            </div>
         </div>
-        <nav>
-            <button onclick="mostrarSeccion('catalogo')">Catálogo</button>
-            <button onclick="mostrarSeccion('carrito')">Carrito (<span id="cart-count">0</span>)</button>
-            <button onclick="mostrarSeccion('historial')">Historial</button>
-            <button id="logoutBtn" style="background: #d32f2f;">Cerrar sesión</button>
-        </nav>
+        <h1 class="logo-tipo">Cafetin Central</h1>
+        <div class="linea-adorno"></div>
     </header>
 
-    <main>
-        <section id="catalogo" class="content-section">
-            <h2>Catálogo de Productos</h2>
-            <div class="grid-productos" id="lista-productos">
+    <nav class="tabs-navegacion">
+        <button id="btn-tab-menu" class="tab-btn active" onclick="cambiarSeccion('menu')">MENÚ</button>
+        <button id="btn-tab-historial" class="tab-btn" onclick="cambiarSeccion('historial')">MI HISTORIAL</button>
+    </nav>
+
+    <main class="container">
+        <section id="vista-menu" class="seccion-activa">
+            <div id="grid-productos" class="grid-productos">
                 </div>
         </section>
 
-        <section id="carrito" class="content-section" style="display:none;">
-            <h2>Tu Carrito</h2>
-            <div id="items-carrito"></div>
-            <div class="total-container">
-                <h3>Subtotal: $<span id="subtotal">0.00</span></h3>
-                <button class="btn-pagar" onclick="finalizarCompra()">Finalizar Pedido</button>
+        <section id="vista-historial" class="seccion-oculta">
+            <h2 class="titulo-seccion">Historial de Compras</h2>
+            <div id="contenedor-historial">
+                <p class="msj-vacio">No hay compras registradas.</p>
             </div>
         </section>
-
-        <section id="historial" class="content-section" style="display:none;">
-            <h2>Mis Compras Anteriores</h2>
-            <table class="tabla-historial">
-                <thead>
-                    <tr>
-                        <th>Fecha</th>
-                        <th>Productos</th>
-                        <th>Total</th>
-                    </tr>
-                </thead>
-                <tbody id="historial-compras">
-                    <tr>   
-
-            </table>
-        </section>
     </main>
+
+    <aside id="carrito-lateral" class="carrito-cerrado">
+        <div class="carrito-header">
+            <h3>Tu Pedido</h3>
+            <button class="close-cart" onclick="toggleCarrito()">×</button>
+        </div>
+        
+        <div id="items-carrito" class="carrito-body">
+            </div>
+
+        <div class="carrito-footer">
+            <div class="subtotal-row">
+                <span>Total a Pagar:</span>
+                <strong id="monto-subtotal">Bs. 0,00</strong>
+            </div>
+            <button class="btn-finalizar" onclick="procesarCompra()">CONFIRMAR COMPRA</button>
+        </div>
+    </aside>
 
     <script src="script.js"></script>
 </body>

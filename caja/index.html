@@ -7,7 +7,7 @@
 </head>
 <body>
     <header class="header-caja">
-        <h1>POS - Pantalla de Cobro</h1>
+        <h1>POS - Cafetín Central</h1>
         <div class="info-sesion">
             <span>Cajero: <strong>caja_01</strong></span>
             <button id="logoutBtn">Cerrar Sesión</button>
@@ -16,28 +16,58 @@
 
     <main class="pos-simple-container">
         <section class="ticket-viewer">
-            <h2>Pedido en Espera</h2>
-            <div class="ticket-papel">
+            <h2 class="titulo-modulo">Factura en Espera</h2>
+            
+            <div class="ticket-fiscal">
                 <div class="ticket-header">
-                    <p><strong>CAFETÍN CENTRAL</strong></p>
-                    <p>RIF: J-12345678-9</p>
-                    <hr>
+                    <p><strong>CAFETÍN CENTRAL<strong></p>
+                    <p>LOS CHAGUARAMOS - CIUDAD UNIVERSITARIA</p>
+                    <p>UCV - CARACAS</p>
+                    <p>RIF: J-123456789</p>
+                    <div class="separador">- - - - - - - - - - - - - - - - -</div>
+                    <p>FACTURA: 00066780</p>
+                    <p>FECHA: 06-02-2026  HORA: 14:46</p>
+                    <div class="separador">- - - - - - - - - - - - - - - - -</div>
                 </div>
                 
                 <div id="lista-items">
                     </div>
 
-                <hr>
-                <div class="ticket-total">
-                    <span>TOTAL A COBRAR:</span>
-                    <span id="monto-total">$0.00</span>
+                <div class="ticket-footer">
+                    <div class="separador">- - - - - - - - - - - - - - - - -</div>
+                    <div class="linea-fiscal">
+                        <span>BI G (16,00%)</span>
+                        <span id="subtotal-fiscal">Bs 0,00</span>
+                    </div>
+                    <div class="linea-fiscal">
+                        <span>IVA G (16,00%)</span>
+                        <span id="iva-fiscal">Bs 0,00</span>
+                    </div>
+                    <div class="total-fiscal">
+                        <span>TOTAL</span>
+                        <span id="total-final">Bs 0,00</span>
+                    </div>
+                    
+                    <div class="seccion-pago">
+                        <div class="linea-fiscal">
+                            <span>TARJETA DE DEBITO</span>
+                            <span id="pago-tarjeta">Bs 0,00</span>
+                        </div>
+                        <div class="linea-fiscal">
+                            <span>CAMBIO</span>
+                            <span>Bs 0,00</span>
+                        </div>
+                    </div>
+
+                    <div class="separador">- - - - - - - - - - - - - - - - -</div>
+                    <p>CANTIDAD PRODUCTOS: 3</p>
+                    <p>GRACIAS POR SU COMPRA</p>
+                
                 </div>
             </div>
 
-            <div class="acciones-caja">
-                <button class="btn-confirmar" onclick="emitirRecibo()">Emitir Recibo</button>
-                <p class="instruccion-cajero">Verifique los productos antes de procesar el pago.</p>
-            </div>
+            <button class="btn-confirmar" onclick="emitirRecibo()">Emitir Recibo</button>
+            <p class="instruccion-cajero">Verifique los datos antes de imprimir.</p>
         </section>
     </main>
 
