@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cafetín Central  | Cliente</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header-container">
+        <h1>Cafetin Central</h1>
+        <div class="user-info">
+            <span>Bienvenido, ClienteUCV</span> | 
+            <span class="puntos">Puntos de Lealtad: <strong>150</strong></span>
+        </div>
+        <nav>
+            <button onclick="mostrarSeccion('catalogo')">Catálogo</button>
+            <button onclick="mostrarSeccion('carrito')">Carrito (<span id="cart-count">0</span>)</button>
+            <button onclick="mostrarSeccion('historial')">Historial</button>
+            <button id="logoutBtn" style="background: #d32f2f;">Cerrar sesión</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="catalogo" class="content-section">
+            <h2>Catálogo de Productos</h2>
+            <div class="grid-productos" id="lista-productos">
+                </div>
+        </section>
+
+        <section id="carrito" class="content-section" style="display:none;">
+            <h2>Tu Carrito</h2>
+            <div id="items-carrito"></div>
+            <div class="total-container">
+                <h3>Subtotal: $<span id="subtotal">0.00</span></h3>
+                <button class="btn-pagar" onclick="finalizarCompra()">Finalizar Pedido</button>
+            </div>
+        </section>
+
+        <section id="historial" class="content-section" style="display:none;">
+            <h2>Mis Compras Anteriores</h2>
+            <table class="tabla-historial">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Productos</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody id="historial-compras">
+                    <tr>   
+
+            </table>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

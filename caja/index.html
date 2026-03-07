@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Punto de Venta | Cafetín Central</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header-caja">
+        <h1>POS - Pantalla de Cobro</h1>
+        <div class="info-sesion">
+            <span>Cajero: <strong>caja_01</strong></span>
+            <button id="logoutBtn">Cerrar Sesión</button>
+        </div>
+    </header>
+
+    <main class="pos-simple-container">
+        <section class="ticket-viewer">
+            <h2>Pedido en Espera</h2>
+            <div class="ticket-papel">
+                <div class="ticket-header">
+                    <p><strong>CAFETÍN CENTRAL</strong></p>
+                    <p>RIF: J-12345678-9</p>
+                    <hr>
+                </div>
+                
+                <div id="lista-items">
+                    </div>
+
+                <hr>
+                <div class="ticket-total">
+                    <span>TOTAL A COBRAR:</span>
+                    <span id="monto-total">$0.00</span>
+                </div>
+            </div>
+
+            <div class="acciones-caja">
+                <button class="btn-confirmar" onclick="emitirRecibo()">Emitir Recibo</button>
+                <p class="instruccion-cajero">Verifique los productos antes de procesar el pago.</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

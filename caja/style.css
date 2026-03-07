@@ -1,0 +1,102 @@
+:root {
+    --color-caja: #5d4037; /* Marrón principal */
+    --color-exito: #2e7d32; /* Verde para cobrar */
+    --color-peligro: #c0392b; /* Rojo para cerrar sesión */
+}
+
+body {
+    background-color: #f3ece0; 
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    margin: 0;
+}
+
+.header-caja {
+    background: var(--color-caja);
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* ESTILO PARA EL BOTÓN ROJO DE CERRAR SESIÓN */
+#logoutBtn {
+    background-color: var(--color-peligro);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+#logoutBtn:hover {
+    background-color: #a93226;
+    transform: scale(1.05);
+}
+
+.pos-simple-container {
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+}
+
+.ticket-viewer {
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+}
+
+.ticket-papel {
+    background: #ffffff;
+    padding: 30px;
+    border: 1px dashed #bcaaa4;
+    box-shadow: 0 10px 25px rgba(62, 39, 35, 0.1);
+    font-family: 'Courier New', Courier, monospace;
+    color: #3e2723;
+    margin-bottom: 25px;
+}
+
+.ticket-linea {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    font-size: 1.1rem;
+}
+
+.ticket-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 15px;
+    color: #000;
+    border-top: 2px solid #5d4037;
+    padding-top: 10px;
+}
+
+.btn-confirmar {
+    background-color: var(--color-exito);
+    color: white;
+    border: none;
+    padding: 20px 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
+    transition: background 0.3s;
+}
+
+.btn-confirmar:hover { 
+    background-color: #1b5e20; 
+}
+
+.instruccion-cajero {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #8d6e63;
+}

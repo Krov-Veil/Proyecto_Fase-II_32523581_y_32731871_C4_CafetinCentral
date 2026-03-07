@@ -1,0 +1,91 @@
+/* Reutiliza tus variables del login */
+@font-face {
+    font-family: 'bright';
+    src: url('../assets/fonts/bright.otf') format('opentype');
+}
+
+body {
+    background-color: #f3ece0;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+.header-container {
+    background: #5d4037;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 { font-family: 'bright'; font-size: 3rem; margin: 0; }
+
+nav button {
+    background: #8d6e63;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.grid-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.card-producto {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.card-producto button {
+    background: #6f4e37;
+    color: white;
+    border: none;
+    padding: 8px;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.item-cart {
+    display: flex;
+    justify-content: space-between;
+    background: white;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Estilos para la tabla de historial */
+.tabla-historial {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: rgb(252, 247, 233);
+    border-radius: 10px;
+    overflow: hidden; /* Para que las esquinas redondeadas funcionen */
+}
+
+.tabla-historial th, .tabla-historial td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #000000;
+}
+
+.tabla-historial th {
+    background-color: var(--color-acento);
+    color: rgb(3, 0, 0);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+.tabla-historial tr:hover {
+    background-color: #fdfaf5;
+}

@@ -1,0 +1,137 @@
+/* variables y fuentes */
+@font-face {
+    font-family: 'bright';
+    /* CORRECCIÓN: Salimos de login y entramos a assets/fonts */
+    src: url('../assets/fonts/bright.otf') format('opentype'); 
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --titulo-size: 4.5rem; 
+    
+    /* Colores del proyecto */
+    --color-principal: #5d4037;
+    --color-secundario: #8d6e63;
+    --color-acento: #6f4e37;
+    --color-fondo: #f3ece0;
+    --color-sombra: #d7ccc8;
+}
+
+/* configuración general */
+body {
+    /* CORRECCIÓN: Salimos de login y entramos a assets/img */
+    /* Nota: He mantenido el nombre con espacios, pero si lo renombras a fondo-inicio-sesion.jpeg mejor */
+    background-image: url('../assets/img/fondo inicio sesion.jpeg'); 
+    
+    /* Asegura que la imagen cubra toda la pantalla sin repetirse */
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* El fondo se queda quieto al hacer scroll */
+
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    color: #3e2723;
+}
+
+/* Contenedor de los títulos arriba de la tarjeta */
+.header-container {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* estilos de texto*/
+h1 {
+    font-family: 'bright', serif; 
+    font-size: var(--titulo-size); /* Usa la variable de arriba */
+    margin: 0;
+    color: var(--color-principal);
+    text-shadow: 4px 4px 0px var(--color-sombra); /* Sombra retro */
+    line-height: 1.1;
+}
+
+h2 {
+    font-weight: 300;
+    margin: 10px 0 0 0;
+    color: var(--color-secundario);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+}
+
+/* cuadro inicio sesión */
+.login-card {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(62, 39, 35, 0.1);
+    width: 320px;
+    border-bottom: 8px solid var(--color-acento);
+    text-align: center;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: var(--color-acento);
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    box-sizing: border-box;
+    border: 2px solid var(--color-sombra);
+    border-radius: 12px;
+    background-color: #fafafa;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--color-secundario);
+    background-color: #fff;
+}
+
+/* botón y demás */
+button {
+    width: 100%;
+    padding: 16px;
+    margin-top: 10px;
+    background-color: var(--color-acento);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #4e342e;
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+.error-msg {
+    color: #d32f2f;
+    font-size: 0.85rem;
+    margin-top: 15px;
+    display: none;
+}

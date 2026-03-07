@@ -1,0 +1,158 @@
+:root {
+    /* Mismos colores que el personal de caja para coherencia */
+    --color-admin: #5d4037; 
+    --color-fondo: #f3ece0; /* Crema suave */
+    --color-peligro: #c0392b;
+    --color-exito: #2e7d32;
+}
+
+body {
+    /* Quitamos la imagen y dejamos el color sólido */
+    background-color: var(--color-fondo); 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    color: #3e2723;
+}
+
+/* HEADER SUPERIOR */
+.header-admin {
+    background: var(--color-admin);
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.header-admin h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+/* BOTÓN CERRAR SESIÓN (ROJO) */
+#logoutBtn {
+    background-color: var(--color-peligro);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#logoutBtn:hover {
+    background-color: #a93226;
+}
+
+/* CONTENEDOR DE DOS COLUMNAS */
+.admin-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide la pantalla en dos partes iguales */
+    gap: 30px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* TARJETAS BLANCAS PARA LOS FORMULARIOS Y LISTAS */
+.card-admin {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-top: 4px solid var(--color-admin);
+}
+
+.card-admin h3 {
+    color: var(--color-admin);
+    margin-top: 0;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* ESTILOS DEL FORMULARIO */
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box; /* Evita que el input se salga del borde */
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--color-admin);
+}
+
+.btn-guardar {
+    background: var(--color-exito);
+    color: white;
+    border: none;
+    padding: 14px;
+    width: 100%;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background 0.3s;
+}
+
+.btn-guardar:hover {
+    background: #1b5e20;
+}
+
+/* LISTA DE GESTIÓN */
+.item-gestion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.item-gestion span {
+    font-weight: 500;
+}
+
+.btn-eliminar {
+    background: var(--color-peligro);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: opacity 0.3s;
+}
+
+.btn-eliminar:hover {
+    opacity: 0.8;
+}
+
+.instruccion {
+    font-size: 0.85rem;
+    color: #7f8c8d;
+    margin-bottom: 20px;
+}
+
+/* RESPONSIVO: Si la pantalla es pequeña, se pone una columna sobre otra */
+@media (max-width: 800px) {
+    .admin-container {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel de Administración | Cafetín Central</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header-admin">
+        <h1>Admin - Gestión de Menú</h1>
+        <div class="info-sesion">
+            <span>Admin: <strong>adminRoot</strong></span>
+            <button id="logoutBtn">Cerrar Sesión</button>
+        </div>
+    </header>
+
+    <main class="admin-container">
+        <section class="card-admin">
+            <h3>Agregar Nuevo Producto</h3>
+            <form id="form-producto">
+                <div class="input-group">
+                    <label>Nombre del Producto:</label>
+                    <input type="text" id="nombreProd" placeholder="" required>
+                </div>
+
+                <div class="precios-container">
+                    <div class="input-group">
+                        <label>Precio ($):</label>
+                        <input type="number" id="precioUSD" step="0.01" placeholder="0.00" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Precio (Bs):</label>
+                        <input type="number" id="precioBS" step="0.01" placeholder="0.00" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Ruta de la Imagen:</label>
+                    <input type="text" id="urlProd" placeholder="imagenes/producto.jpg">
+                    <small>Se guardará en la carpeta: <strong>/imagenes/</strong></small>
+                </div>
+                <button type="submit" class="btn-guardar">Guardar en Menú</button>
+            </form>
+        </section>
+
+        <section class="card-admin">
+            <h3>Gestión de Inventario</h3>
+            <p class="instruccion">Haga clic en el botón para eliminar productos o reseñas del sistema.</p>
+            <div id="lista-gestion">
+                </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
