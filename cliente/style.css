@@ -35,9 +35,17 @@ body {
 .logo-tipo {
     font-family: 'bright', serif;
     font-size: 4.5rem; 
-    margin: 10px 0;
+    margin: -15px 0 5px; /* CAMBIO: Se añadió -15px arriba para subirlo */
     color: var(--color-crema); 
     text-shadow: 4px 4px 0px rgba(0,0,0,0.3); 
+}
+
+/* CAMBIO: Nueva clase añadida para el texto de puntos */
+.puntos-lealtad {
+    color: var(--color-sombra);
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    font-weight: bold;
 }
 
 .top-bar { 

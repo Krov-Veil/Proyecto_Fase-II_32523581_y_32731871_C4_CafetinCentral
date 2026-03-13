@@ -20,9 +20,27 @@ const productos = [
 ];
 
 let carrito = [];
-let historialSesion = []; 
 
-document.addEventListener('DOMContentLoaded', () => { cargarProductos(); });
+// DATOS ESTÁTICOS: Inicializamos con compras ficticias para cumplir el enunciado
+let historialSesion = [
+    { 
+        id: "#4285", 
+        fecha: "10/03/2026 09:15 AM", 
+        detalles: "Empanadas, Malta (250ml)", 
+        monto: "Bs. 1.299,51" 
+    },
+    { 
+        id: "#3102", 
+        fecha: "12/03/2026 03:45 PM", 
+        detalles: "Cappuccino, Croissants", 
+        monto: "Bs. 2.815,61" 
+    }
+]; 
+
+document.addEventListener('DOMContentLoaded', () => { 
+    cargarProductos(); 
+    mostrarHistorial(); // Se ejecuta al cargar para que el historial no esté vacío
+});
 
 function cargarProductos() {
     const grid = document.getElementById('grid-productos');
@@ -33,7 +51,7 @@ function cargarProductos() {
             </div>
             <h3>${p.nombre}</h3>
             <div>
-                <span class="bs-precio">Bs. ${p.bs.toLocaleString('es-VE')}</span>
+                <span class="bs-precio">Bs. ${p.bs.toLocaleString('es-VE', { minimumFractionDigits: 2 })}</span>
                 <span class="usd-ref">Ref. $${p.usd.toFixed(2)}</span>
             </div>
             <button class="btn-añadir" id="btn-${p.id}" onclick="agregarCarrito(${p.id})">Añadir al Carrito</button>
@@ -59,23 +77,29 @@ function actualizarInterfazCarrito() {
     const listaItems = document.getElementById('items-carrito');
     const subtotalText = document.getElementById('monto-subtotal');
     let total = 0;
+    
     listaItems.innerHTML = carrito.map(item => {
         total += item.bs;
-        return `<div class="carrito-item"><span>${item.nombre}</span> <strong>Bs. ${item.bs.toLocaleString('es-VE')}</strong></div>`;
+        return `<div class="carrito-item"><span>${item.nombre}</span> <strong>Bs. ${item.bs.toLocaleString('es-VE', { minimumFractionDigits: 2 })}</strong></div>`;
     }).join('');
-    subtotalText.innerText = `Bs. ${total.toLocaleString('es-VE')}`;
+    
+    subtotalText.innerText = `Bs. ${total.toLocaleString('es-VE', { minimumFractionDigits: 2 })}`;
 }
 
 function procesarCompra() {
     if (carrito.length === 0) return alert("Tu carrito está vacío.");
+    
+    const fechaActual = new Date();
     const ticket = {
         id: "#" + Math.floor(Math.random() * 10000),
-        fecha: new Date().toLocaleTimeString(),
+        fecha: fechaActual.toLocaleDateString() + " " + fechaActual.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
         detalles: carrito.map(i => i.nombre).join(", "),
         monto: document.getElementById('monto-subtotal').innerText
     };
+    
     historialSesion.push(ticket);
     alert("¡Compra procesada con éxito!");
+    
     carrito = [];
     actualizarInterfazCarrito();
     toggleCarrito();
@@ -84,7 +108,13 @@ function procesarCompra() {
 
 function mostrarHistorial() {
     const cont = document.getElementById('contenedor-historial');
-    if (historialSesion.length === 0) return;
+    
+    if (historialSesion.length === 0) {
+        cont.innerHTML = '<p class="msj-vacio">No hay compras registradas.</p>';
+        return;
+    }
+
+    // El .reverse() asegura que lo más reciente aparezca arriba
     cont.innerHTML = historialSesion.map(h => `
         <div class="compra-card">
             <p><strong>Pedido:</strong> ${h.id} - <small>${h.fecha}</small></p>
@@ -94,7 +124,9 @@ function mostrarHistorial() {
     `).reverse().join('');
 }
 
-function toggleCarrito() { document.getElementById('carrito-lateral').classList.toggle('carrito-cerrado'); }
+function toggleCarrito() { 
+    document.getElementById('carrito-lateral').classList.toggle('carrito-cerrado'); 
+}
 
 function cambiarSeccion(seccion) {
     if (seccion === 'menu') {
