@@ -1,4 +1,4 @@
-/* 1. IMPORTACIÓN DE FUENTE PERSONALIZADA */
+/* importación de fuente */
 @font-face {
     font-family: 'bright';
     src: url('../assets/fonts/bright.otf') format('opentype'); 
@@ -6,7 +6,7 @@
     font-style: normal;
 }
 
-/* 2. VARIABLES DE DISEÑO */
+/*  diseño */
 :root {
     --color-principal: #5d4037;
     --color-oscuro: #3e2723;
@@ -16,7 +16,7 @@
     --verde-acento: #27ae60;
 }
 
-/* 3. CONFIGURACIÓN GENERAL */
+/* cnfiguración general */
 body { 
     background-color: var(--color-fondo); 
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
@@ -24,7 +24,7 @@ body {
     color: #333;
 }
 
-/* 4. HEADER Y LOGOTIPO (Basado en Captura 160146) */
+/* header y logo */
 .menu-header { 
     background: var(--color-oscuro); 
     padding: 20px 0 45px; 
@@ -35,12 +35,12 @@ body {
 .logo-tipo {
     font-family: 'bright', serif;
     font-size: 4.5rem; 
-    margin: -15px 0 5px; /* CAMBIO: Se añadió -15px arriba para subirlo */
+    margin: -15px 0 5px;
     color: var(--color-crema); 
     text-shadow: 4px 4px 0px rgba(0,0,0,0.3); 
 }
 
-/* CAMBIO: Nueva clase añadida para el texto de puntos */
+/* puntos lealtad */
 .puntos-lealtad {
     color: var(--color-sombra);
     font-size: 1.1rem;
@@ -85,7 +85,7 @@ body {
     right: 0; 
 }
 
-/* 5. NAVEGACIÓN CON BOTONES REDONDEADOS (Basado en Captura 160146) */
+/* botones redondos */
 .tabs-navegacion { 
     display: flex; 
     justify-content: center; 
@@ -114,7 +114,7 @@ body {
     border-bottom: 3px solid var(--color-principal);
 }
 
-/* 6. GRID DE PRODUCTOS E IMÁGENES */
+/* productos, imagenes */
 .grid-productos { 
     display: grid; 
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
@@ -184,7 +184,7 @@ body {
     font-weight: bold;
 }
 
-/* 7. CARRITO LATERAL (Basado en Captura 154241) */
+/* carrito */
 #carrito-lateral {
     position: fixed; 
     right: 0; 
@@ -210,7 +210,7 @@ body {
     align-items: center;
 }
 
-/* Botón X circular (Sin recuadro blanco) */
+/* Botón X  */
 .close-cart {
     background: rgba(255, 255, 255, 0.2); 
     border: none; 
@@ -254,6 +254,6 @@ body {
     cursor: pointer;
 }
 
-/* 8. UTILIDADES */
+/* utilidades */
 .seccion-oculta { display: none; }
 .seccion-activa { display: block; }

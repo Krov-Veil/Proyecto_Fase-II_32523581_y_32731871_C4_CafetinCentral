@@ -21,7 +21,7 @@
 /* configuración general */
 body {
     /* sale de login y entra a assets/img */
-    background-image: url('../assets/img/fondo-inicio-sesion.jpeg'); 
+    background-image: url('../assets/img/fondo inicio sesion.jpeg'); 
     
     /* Asegura que la imagen cubra toda la pantalla sin repetirse */
     background-size: cover; 
